@@ -1,4 +1,19 @@
-header {
-    display: flex;
-    justify-content: center;
+
+
+body{
+
+    background-color: #fff3b0;
+    padding-left: 33%;
+    padding-right: 33%;
+
+}
+ul {
+    font-size: 25px;
+
+}
+h1 {
+    font-size: 50px;
+}
+a:hover {
+     color: #335c67;
 }
