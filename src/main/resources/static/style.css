@@ -1,19 +1,51 @@
-
+/** {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}*/
 
 body{
 
     background-color: #fff3b0;
-    padding-left: 33%;
-    padding-right: 33%;
+    text-align: center;
+    /*padding-left: 30%;
+    padding-right: 30%;*/
+
 
 }
 ul {
     font-size: 25px;
-
+    font-family: "Arial", sans-serif;
+    list-style-type: none;
+    display: flex;
+    /*flex-direction: column;*/
+    justify-content: space-around;
 }
 h1 {
-    font-size: 50px;
+    font-size: 40px;
+    /*text-align: center;*/
+    font-family: "Helvetica", "Arial", sans-serif;
+    display: flex;
+    justify-content: center;
 }
+
 a:hover {
-     color: #335c67;
+     color: #e09f3e;
+}
+
+.movie-category p {
+    font-size: 16px;
+    font-family: "Arial", sans-serif;
+    /*display: flex;
+    justify-content: left;*/
+    text-align: left;
+    padding-left: 35%;
+    padding-right:30%;
+}
+
+.menu {
+    /*width: 900px;*/
+    display: flex;
+    font-family: "Arial";
+    justify-content: space-around;
 }
