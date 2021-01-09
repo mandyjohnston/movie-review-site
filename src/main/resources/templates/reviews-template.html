@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css"/>
+    <title th:text="${review.title}">Halloween Review</title>
+</head>
+<body>
+
+<nav class="menu-container">
+    <div class="menu">
+        <div class="home"><a href="index.html">Reviews</a></div>
+        <div class="home"><a href="categories.html">Categories</a></div>
+        <div class="home"><a href="hashtags.html">Hashtags</a></div>
+    </div>
+</nav>
+
+<section>
+    <header><h1 th:text="${review.title}">Halloween</h1></header>
+    <img th:src="${review.poster}">
+    <br>
+    <a th:href="${review.trailer}">Watch Trailer</a>
+
+    <section class = "Review">
+        <h2 th:text="${review.author} + '\'s Movie Review'">Abel's Review</h2>
+        <p th:text="${review.description}">This shit is scary as hell!!!</p>
+    </section>
+
+    <section class = "Hashtags">
+        <a th:text="${review.hashtag}" href="ScaryHashtag.html">#scary</a>
+    </section>
+</section>
+</body>
+</html>
