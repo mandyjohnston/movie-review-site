@@ -5,19 +5,21 @@ import java.util.Collection;
 
 public class movieReview {
 
-        private long id;
+        private Long id;
         private String title;
         private String author;
         private String description;
+        private String category;
         private String hashtag;
         private String poster;
         private String trailer;
 
 
-    public movieReview(String title, String author, String description, String hashtag, long id, String poster, String trailer) {
+    public movieReview(String title, String author, String description, String category, String hashtag, Long id, String poster, String trailer) {
         this.title = title;
         this.author = author;
         this.description = description;
+        this.category = category;
         this.hashtag = hashtag;
         this.id = id;
         this.poster = poster;
@@ -49,6 +51,10 @@ public class movieReview {
     }
     public String getTrailer() {
         return trailer;
+    }
+
+    public String getCategory() {
+        return category;
     }
 }
 

@@ -12,18 +12,17 @@
 <header>
     <nav class="menu-container">
         <div class="menu">
-            <div class="home"><a href="index.html">Reviews</a></div>
-            <div class="home"><a href="categories.html">Categories</a></div>
-            <div class="home"><a href="hashtags.html">Hashtags</a></div>
+            <a href="/">Reviews</a>
+            <a href="/categories">Categories</a>
+            <a href="/hashtags">Hashtags</a>
         </div>
     </nav>
-    <h1 th:text="${hashtag.hashtag}">Categories</h1>
+    <h1 th:text="${hashtag.hashtag}">Hashtags</h1>
 </header>
 
 <section class = "movie-genre">
     <ul>
-        <li><a href="Thrillers.html">Thrillers</a></li>
-        <li><a href="Comedies.html">Comedies</a></li>
+        <li th:each="review:${hashtag}"><a th:text="${review.title}" th:href="'/review/'+ ${review.id}"></a></li>
     </ul>
 </section>
 </body>

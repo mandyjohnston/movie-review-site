@@ -17,18 +17,13 @@
             <a href="/hashtags">Hashtags</a>
         </div>
     </nav>
-
+    <h1 th:text="${category.category}">Categories</h1>
 </header>
 
-<section class="reviews">
-    <h1>Categories</h1>
+<section class = "movie-genre">
     <ul>
-        <li th:each="review:${categories}"><a th:text="${review.category}" th:href="'/category/'+ ${review.id}"></a></li>
+        <li th:each="review:${category}"><a th:text="${review.title}" th:href="'/review/'+ ${review.id}"></a></li>
     </ul>
-
-
-
 </section>
-
 </body>
 </html>
