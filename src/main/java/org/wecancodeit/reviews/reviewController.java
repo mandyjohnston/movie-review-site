@@ -44,7 +44,7 @@ public class reviewController {
 
     @RequestMapping("/categories")
     public String displayCategories(Model model) {
-        model.addAttribute("categories", reviewsRepo.getAllReviews());
+        model.addAttribute("categories", reviewsRepo.getAllUniqueCategories());
         return "categories-template";
     }
 
