@@ -9,13 +9,13 @@ public class movieReview {
         private String title;
         private String author;
         private String description;
-        private String category;
-        private String hashtag;
+        private Category category;
+        private Hashtag hashtag;
         private String poster;
         private String trailer;
 
 
-    public movieReview(String title, String author, String description, String category, String hashtag, Long id, String poster, String trailer) {
+    public movieReview(String title, String author, String description, Category category, Hashtag hashtag, Long id, String poster, String trailer) {
         this.title = title;
         this.author = author;
         this.description = description;
@@ -38,7 +38,7 @@ public class movieReview {
         return description;
     }
 
-    public String getHashtag() {
+    public Hashtag getHashtag() {
         return hashtag;
     }
 
@@ -53,7 +53,7 @@ public class movieReview {
         return trailer;
     }
 
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 }

@@ -25,12 +25,14 @@ public class reviewController {
     }
 
     @RequestMapping("review/{id}")
-    public String displaySingleReview(Model model, @PathVariable Long id) {
+    public String displaySingleReview(Model model, @PathVariable Long id, String hashtag) {
         model.addAttribute("review", reviewsRepo.getOneReview(id));
+        model.addAttribute("hashtag", hashtag);
         return "reviews-template";
     }
 
-    @RequestMapping("/hashtags")
+
+/*    @RequestMapping("/hashtags")
     public String displayHashtags(Model model) {
         model.addAttribute("hashtags", reviewsRepo.getAllReviews());
         return "hashtags-template";
@@ -40,7 +42,7 @@ public class reviewController {
     public String displaySingleHashtag(Model model, @PathVariable Long id) {
         model.addAttribute("hashtag", reviewsRepo.getOneReview(id));
         return "oneHashtag-template";
-    }
+    }*/
 
     @RequestMapping("/categories")
     public String displayCategories(Model model) {
@@ -48,10 +50,24 @@ public class reviewController {
         return "categories-template";
     }
 
-    @RequestMapping("category/{id}")
-    public String displaySingleCategory(Model model, @PathVariable Long id) {
-        model.addAttribute("category", reviewsRepo.getOneReview(id));
+     @RequestMapping("category/{category}")
+    public String displaySingleCategory(Model model, @PathVariable String category) {
+        model.addAttribute("reviews", reviewsRepo.getOneCategory(category));
+        model.addAttribute("category", category);
         return "oneCategory-template";
+    }
+
+    @RequestMapping("/hashtags")
+    public String displayHashtags(Model model) {
+        model.addAttribute("hashtags", reviewsRepo.getAllUniqueHashtags());
+        return "hashtags-template";
+    }
+
+    @RequestMapping("hashtag/{hashtag}")
+    public String displaySingleHashtag(Model model, @PathVariable String hashtag) {
+        model.addAttribute("reviews", reviewsRepo.getOneHashtag(hashtag));
+        model.addAttribute("hashtag", hashtag);
+        return "oneHashtag-template";
     }
 
 
