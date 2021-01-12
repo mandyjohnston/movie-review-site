@@ -28,9 +28,7 @@
     </section>
 
     <section class = "Hashtags">
-        <!--<a th:text="${hashtag}" th:href="'/hashtag/'+ ${hashtag}">#scary</a>-->
-        <p th:text="${hashtags}"></p>
-
+        <a th:text="'#'+ ${review.getHashtag().getName()}" th:href="'/hashtag/'+ ${review.getHashtag().getName()}">#scary</a>
     </section>
 </section>
 </body>

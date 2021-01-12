@@ -10,9 +10,11 @@ public class movieReview {
         private String author;
         private String description;
         private Category category;
-        private Hashtag hashtag;
+        private Hashtag hashtag; //collection of hashtags
         private String poster;
         private String trailer;
+
+//2 annot 1 for hashtag(MM), 1 for category(M-1)
 
 
     public movieReview(String title, String author, String description, Category category, Hashtag hashtag, Long id, String poster, String trailer) {

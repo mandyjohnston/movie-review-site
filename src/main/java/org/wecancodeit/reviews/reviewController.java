@@ -6,15 +6,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
 
 @Controller
 public class reviewController {
 
     @Resource
-    private ReviewsRepository reviewsRepo;
+    private ReviewsStorage reviewsRepo;
 
 
 
