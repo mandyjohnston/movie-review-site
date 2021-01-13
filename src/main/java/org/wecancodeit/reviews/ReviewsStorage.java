@@ -9,13 +9,17 @@ import java.util.Map;
 
 @Service
 public class ReviewsStorage {
-    Map<Long, movieReview> reviewList = new HashMap<>();
+    Map<Long, MovieReview> reviewList = new HashMap<>();
 
-
+/*comment out above map
+* private ReviewRepository reviewRepo;
+* public ReviewsStorage() {
+* }
+* */
     public ReviewsStorage() {
-        movieReview rideAlong = new movieReview("Ride Along Review", "Abel", "This movie is funny!", new Category("Comedy"), new Hashtag("hilarious"), 1L, "https://i.ytimg.com/vi_webp/b_huNOyTPxc/movieposter.webp", "https://www.youtube.com/watch?v=5klp6rkHIks");
-        movieReview halloween = new movieReview("Halloween Movie Review", "Abel", "This movie is scary as hell!", new Category("Thriller"), new Hashtag("scary"), 2L, "https://images-na.ssl-images-amazon.com/images/I/61VVvaQJJvL._AC_SY679_.jpg", "https://www.youtube.com/watch?v=ek1ePFp-nBI");
-        movieReview bridesmaids = new movieReview("Bridesmaids Movie Review", "Brena", "This movie is also funny as hell!", new Category("Comedy"), new Hashtag("hilarious"), 3L, "https://images-na.ssl-images-amazon.com/images/I/61VVvaQJJvL._AC_SY679_.jpg", "https://www.youtube.com/watch?v=ek1ePFp-nBI");
+        MovieReview rideAlong = new MovieReview("Ride Along Review", "Abel", "This movie is funny!", new Category("Comedy"), ("hilarious"), 1L, "https://i.ytimg.com/vi_webp/b_huNOyTPxc/movieposter.webp", "https://www.youtube.com/watch?v=5klp6rkHIks");
+        MovieReview halloween = new MovieReview("Halloween Movie Review", "Abel", "This movie is scary as hell!", new Category("Thriller"), new Hashtag("scary"), 2L, "https://images-na.ssl-images-amazon.com/images/I/61VVvaQJJvL._AC_SY679_.jpg", "https://www.youtube.com/watch?v=ek1ePFp-nBI");
+        MovieReview bridesmaids = new MovieReview("Bridesmaids Movie Review", "Brena", "This movie is also funny as hell!", new Category("Comedy"), new Hashtag("hilarious"), 3L, "https://images-na.ssl-images-amazon.com/images/I/61VVvaQJJvL._AC_SY679_.jpg", "https://www.youtube.com/watch?v=ek1ePFp-nBI");
 
 
         reviewList.put(rideAlong.getId(), rideAlong);
@@ -24,27 +28,29 @@ public class ReviewsStorage {
 
     }
 
-    public Collection<movieReview> getAllReviews() {
+
+
+    public Collection<MovieReview> getAllReviews() {
         return reviewList.values();
     }
 
-    public movieReview getOneReview(Long id) {
+    public MovieReview getOneReview(Long id) {
         return reviewList.get(id);
     }
 
     Collection<String> categoryList = new HashSet<>();
 
     public Collection<String> getAllUniqueCategories() {
-        for (movieReview x : getAllReviews()) {
+        for (MovieReview x : getAllReviews()) {
             categoryList.add(x.getCategory().getName());
         }
         return categoryList;
     }
 
 
-    public Collection<movieReview> getOneCategory(String category) {
-        Collection<movieReview> movieReviewList = new HashSet<>();
-        for (movieReview x : getAllReviews()) {
+    public Collection<MovieReview> getOneCategory(String category) {
+        Collection<MovieReview> movieReviewList = new HashSet<>();
+        for (MovieReview x : getAllReviews()) {
             if (x.getCategory().getName().equals(category)) {
                 movieReviewList.add(x);
             }
@@ -56,15 +62,15 @@ public class ReviewsStorage {
     Collection<String> hashtagList = new HashSet<>();
 
     public Collection<String> getAllUniqueHashtags() {
-        for (movieReview x : getAllReviews()) {
+        for (MovieReview x : getAllReviews()) {
             hashtagList.add(x.getHashtag().getName());
         }
         return hashtagList;
     }
 
-    public Collection<movieReview> getOneHashtag(String hashtag) {
-        Collection<movieReview> movieReviewList = new HashSet<>();
-        for (movieReview x : getAllReviews()) {
+    public Collection<MovieReview> getOneHashtag(String hashtag) {
+        Collection<MovieReview> movieReviewList = new HashSet<>();
+        for (MovieReview x : getAllReviews()) {
             if (x.getHashtag().getName().equals(hashtag)) {
                 movieReviewList.add(x);
             }

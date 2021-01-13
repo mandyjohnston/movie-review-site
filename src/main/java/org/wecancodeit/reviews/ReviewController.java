@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.annotation.Resource;
 
 @Controller
-public class reviewController {
+public class ReviewController {
 
     @Resource
     private ReviewsStorage reviewsRepo;
@@ -41,7 +41,7 @@ public class reviewController {
         return "oneHashtag-template";
     }*/
 
-    @RequestMapping("/categories")
+    /*@RequestMapping("/categories")
     public String displayCategories(Model model) {
         model.addAttribute("categories", reviewsRepo.getAllUniqueCategories());
         return "categories-template";
@@ -52,20 +52,9 @@ public class reviewController {
         model.addAttribute("reviews", reviewsRepo.getOneCategory(category));
         model.addAttribute("category", category);
         return "oneCategory-template";
-    }
+    }*/
 
-    @RequestMapping("/hashtags")
-    public String displayHashtags(Model model) {
-        model.addAttribute("hashtags", reviewsRepo.getAllUniqueHashtags());
-        return "hashtags-template";
-    }
 
-    @RequestMapping("hashtag/{hashtag}")
-    public String displaySingleHashtag(Model model, @PathVariable String hashtag) {
-        model.addAttribute("reviews", reviewsRepo.getOneHashtag(hashtag));
-        model.addAttribute("hashtag", hashtag);
-        return "oneHashtag-template";
-    }
 
 
 
