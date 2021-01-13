@@ -1,4 +1,6 @@
 package org.wecancodeit.reviews;
 
-public class HashtagRepository {
+import org.springframework.data.repository.CrudRepository;
+
+public interface HashtagRepository extends CrudRepository<Hashtag, Long> {
 }
