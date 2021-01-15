@@ -22,7 +22,7 @@ public class CategoryController {
 
     @RequestMapping("category/{id}")
     public String displaySingleCategory(Model model, @PathVariable Long id) {
-        model.addAttribute("reviews", categoryStorage.getCategoryById(id));
+        model.addAttribute("category", categoryStorage.getCategoryById(id));
         return "oneCategory-template";
     }
 }

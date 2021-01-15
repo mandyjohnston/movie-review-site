@@ -14,6 +14,7 @@ public class ReviewStorage {
     public ReviewStorage() {
 
     }
+
     @Resource
     private ReviewRepository reviewRepo;
 

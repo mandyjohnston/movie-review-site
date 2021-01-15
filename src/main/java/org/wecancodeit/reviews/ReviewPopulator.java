@@ -3,6 +3,7 @@ package org.wecancodeit.reviews;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.wecancodeit.reviews.Models.Category;
+import org.wecancodeit.reviews.Models.Hashtag;
 import org.wecancodeit.reviews.Models.Review;
 import org.wecancodeit.reviews.Storage.CategoryStorage;
 import org.wecancodeit.reviews.Storage.HashtagStorage;
@@ -27,6 +28,10 @@ public class ReviewPopulator implements CommandLineRunner {
         Category comedy = new Category("Comedy");
         Category thriller = new Category("Thriller");
         Category romCom = new Category("Romantic Comedy");
+        /*Category drama = new Category("Drama");
+        Category action = new Category("Action");
+        Category western = new Category("Kids");
+        Category Children = new Category("Children");*/
 
 
         categoryStorage.addCategory(comedy);
@@ -41,8 +46,7 @@ public class ReviewPopulator implements CommandLineRunner {
         reviewStorage.addReview(halloween);
         reviewStorage.addReview(bridesmaids);
 
-        //hashtag declarations
-        //hashtag adds
+
 
 
 

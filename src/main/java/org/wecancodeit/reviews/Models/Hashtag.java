@@ -11,7 +11,7 @@ public class Hashtag {
     @GeneratedValue
     private long id;
     private String name;
-    @ManyToMany(mappedBy = "hashtags")
+    @ManyToMany(mappedBy = "hashtag")
     private Collection<Review> reviews;
 
    /* public Hashtag(String name, Review...reviews) {

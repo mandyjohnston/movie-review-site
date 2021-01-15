@@ -17,9 +17,10 @@ public class Review {
         @ManyToOne
         private Category category;
         @ManyToMany
-        private Collection<Hashtag> hashtags;
+        private Collection<Hashtag> hashtag;
         private String poster;
         private String trailer;
+
 
     public Review(String title, String author, String description, Category category, String poster, String trailer) {
         this.title = title;
@@ -28,12 +29,16 @@ public class Review {
         this.category = category;
         this.poster = poster;
         this.trailer = trailer;
+        this.hashtag = hashtag;
     }
 
     public Review() {
 
     }
 
+    public Collection<Hashtag> getHashtag() {
+        return hashtag;
+    }
 
     public String getTitle() {
         return title;

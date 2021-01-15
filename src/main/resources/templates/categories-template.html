@@ -23,7 +23,7 @@
 <section class="reviews">
     <h1>Categories</h1>
     <ul>
-        <li th:each="categories:${categories}"><a th:text="${categories}" th:href="'/category/'+ ${categories}"></a></li>
+        <li th:each="categories:${categories}"><a th:text="${categories.name}" th:href="'/category/'+ ${categories.id}"></a></li>
     </ul>
 
 

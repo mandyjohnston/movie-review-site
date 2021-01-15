@@ -17,7 +17,7 @@
 </nav>
 
 <section>
-    <header><h1 th:text="${review.title}">Halloween</h1></header>
+   <header><h1 th:text="${review.title}">Halloween</h1></header>
     <img th:src="${review.poster}">
     <br>
     <a th:href="${review.trailer}">Watch Trailer</a>
@@ -26,10 +26,11 @@
         <h2 th:text="${review.author} + '\'s Movie Review'">Abel's Review</h2>
         <p th:text="${review.description}">This shit is scary as hell!!!</p>
     </section>
-
-    <section class = "Hashtags">
-        <a th:text="'#'+ ${review.getHashtag().getName()}" th:href="'/hashtag/'+ ${review.getHashtag().getName()}">#scary</a>
-    </section>
+    <!--
+        <section class = "Hashtags">
+            //change to th:each
+            <a th:text="'#'+ ${review.getHashtag().getN}" th:href="'/hashtag/'+ ${review.getHashtag().getName()}">#scary</a>
+        </section>-->
 </section>
 </body>
 </html>

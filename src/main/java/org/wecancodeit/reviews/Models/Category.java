@@ -20,6 +20,11 @@ public class Category {
         this.name = name;
     }
 
+
+    public Collection<Review> getReviews() {
+        return reviews;
+    }
+
     public Category() {
 
     }
