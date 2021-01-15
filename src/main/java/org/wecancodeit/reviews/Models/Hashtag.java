@@ -1,4 +1,4 @@
-package org.wecancodeit.reviews;
+package org.wecancodeit.reviews.Models;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -11,14 +11,17 @@ public class Hashtag {
     @GeneratedValue
     private long id;
     private String name;
-    @ManyToMany(mappedBy = "hashtag")
-    private Collection<MovieReview> reviews;
+    @ManyToMany(mappedBy = "hashtags")
+    private Collection<Review> reviews;
 
-    public Hashtag(String name, MovieReview...reviews) {
+   /* public Hashtag(String name, Review...reviews) {
         this.name = name;
         this.reviews = List.of(reviews);
-    }
+    }*/
 
+    public Hashtag(String name) {
+        this.name = name;
+    }
     public Hashtag() {
 
     }
@@ -31,7 +34,7 @@ public class Hashtag {
         return id;
     }
 
-    public Collection<MovieReview> getReviews() {
+    public Collection<Review> getReviews() {
         return reviews;
     }
 

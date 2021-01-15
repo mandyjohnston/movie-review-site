@@ -1,21 +1,20 @@
-package org.wecancodeit.reviews;
+package org.wecancodeit.reviews.Models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.Objects;
 
 @Entity
 public class Category {
     @Id
     @GeneratedValue
-    private String id;
+    private Long id;
     private String name;
     @OneToMany(mappedBy = "category")
-    private Collection<MovieReview> reviews;
+    private Collection<Review> reviews;
 
     public Category(String name) {
         this.name = name;
@@ -28,7 +27,7 @@ public class Category {
     public String getName() {
         return name;
     }
-    public String getId() { return id; }
+    public Long getId() { return id; }
 
     @Override
     public String toString() {

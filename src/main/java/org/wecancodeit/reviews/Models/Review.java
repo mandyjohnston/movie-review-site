@@ -1,12 +1,11 @@
-package org.wecancodeit.reviews;
+package org.wecancodeit.reviews.Models;
 
 import javax.persistence.*;
-import java.awt.*;
 import java.util.Collection;
-import java.util.Objects;
+import java.util.List;
 
 @Entity
-public class MovieReview {
+public class Review {
 
         @Id
         @GeneratedValue
@@ -17,25 +16,24 @@ public class MovieReview {
         private String description;
         @ManyToOne
         private Category category;
-        @ManyToMany(mappedBy = "reviews")
-        private Collection<Hashtag> hashtag; //collection of hashtags
+        @ManyToMany
+        private Collection<Hashtag> hashtags;
         private String poster;
         private String trailer;
 
-    public MovieReview(String title, String author, String description, Category category, Collection<Hashtag> hashtag, Long id, String poster, String trailer) {
+    public Review(String title, String author, String description, Category category, String poster, String trailer) {
         this.title = title;
         this.author = author;
         this.description = description;
         this.category = category;
-        this.hashtag = hashtag;
-        this.id = id;
         this.poster = poster;
         this.trailer = trailer;
     }
 
-    public MovieReview() {
+    public Review() {
 
     }
+
 
     public String getTitle() {
         return title;
@@ -49,11 +47,7 @@ public class MovieReview {
         return description;
     }
 
-    public Collection<Hashtag> getHashtag() {
-        return hashtag;
-    }
-
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
