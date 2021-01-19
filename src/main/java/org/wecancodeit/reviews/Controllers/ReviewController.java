@@ -2,8 +2,10 @@ package org.wecancodeit.reviews.Controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.wecancodeit.reviews.Models.Hashtag;
+import org.wecancodeit.reviews.Models.Review;
+import org.wecancodeit.reviews.Storage.HashtagStorage;
 import org.wecancodeit.reviews.Storage.ReviewStorage;
 
 import javax.annotation.Resource;
@@ -15,7 +17,6 @@ public class ReviewController {
     private ReviewStorage reviewsRepo;
 
 
-
     @RequestMapping({"", "/"})
     public String displayHomepage(Model model) {
         model.addAttribute("reviews", reviewsRepo.getAllReviews());
@@ -23,13 +24,16 @@ public class ReviewController {
     }
 
     @RequestMapping("review/{id}")
-    public String displaySingleReview(Model model, @PathVariable Long id, String hashtag) {
+    public String displaySingleReview(Model model, @PathVariable Long id) {
         model.addAttribute("review", reviewsRepo.getOneReview(id));
-        model.addAttribute("hashtag", hashtag);
         return "reviews-template";
     }
 
-
+   @PostMapping("updateReview")
+    public String updateReviews(@RequestParam String author, @RequestParam String review, @RequestParam Hashtag hashtag) {
+        reviewsRepo.addReview();
+        return "redirect:/reviews-template";
+    }
 /*    @RequestMapping("/hashtags")
     public String displayHashtags(Model model) {
         model.addAttribute("hashtags", reviewsRepo.getAllReviews());

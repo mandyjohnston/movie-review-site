@@ -38,9 +38,17 @@ public class ReviewPopulator implements CommandLineRunner {
         categoryStorage.addCategory(thriller);
         categoryStorage.addCategory(romCom);
 
-        Review rideAlong = new Review("Ride Along Review", "Abel", "This movie is funny!", comedy, "https://i.ytimg.com/vi_webp/b_huNOyTPxc/movieposter.webp", "https://www.youtube.com/watch?v=5klp6rkHIks");
-        Review halloween = new Review("Halloween Movie Review", "Abel", "This movie is scary as hell!", thriller, "https://images-na.ssl-images-amazon.com/images/I/61VVvaQJJvL._AC_SY679_.jpg", "https://www.youtube.com/watch?v=ek1ePFp-nBI");
-        Review bridesmaids = new Review("Bridesmaids Movie Review", "Brena", "This movie is also funny as hell!", romCom, "https://images-na.ssl-images-amazon.com/images/I/61VVvaQJJvL._AC_SY679_.jpg", "https://www.youtube.com/watch?v=ek1ePFp-nBI");
+        Hashtag funny = new Hashtag("#funny");
+        Hashtag scary = new Hashtag("#scary");
+        Hashtag hilarious = new Hashtag("#hilarious");
+
+        hashtagStorage.addHashtag(funny);
+        hashtagStorage.addHashtag(scary);
+        hashtagStorage.addHashtag(hilarious);
+
+        Review rideAlong = new Review("Ride Along", "Abel", "This movie is funny!", comedy, "https://i.ytimg.com/vi_webp/b_huNOyTPxc/movieposter.webp", "https://www.youtube.com/watch?v=5klp6rkHIks", funny);
+        Review halloween = new Review("Halloween", "Abel", "This movie is scary as hell!", thriller, "https://images-na.ssl-images-amazon.com/images/I/61VVvaQJJvL._AC_SY679_.jpg", "https://www.youtube.com/watch?v=ek1ePFp-nBI", scary);
+        Review bridesmaids = new Review("Bridesmaids", "Brena", "This movie is also funny as hell!", romCom, "https://images-na.ssl-images-amazon.com/images/I/61VVvaQJJvL._AC_SY679_.jpg", "https://www.youtube.com/watch?v=ek1ePFp-nBI", hilarious, funny);
 
         reviewStorage.addReview(rideAlong);
         reviewStorage.addReview(halloween);

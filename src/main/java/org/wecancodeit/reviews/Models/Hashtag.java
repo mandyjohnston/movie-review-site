@@ -14,10 +14,10 @@ public class Hashtag {
     @ManyToMany(mappedBy = "hashtag")
     private Collection<Review> reviews;
 
-   /* public Hashtag(String name, Review...reviews) {
+   public Hashtag(String name, Review...reviews) {
         this.name = name;
         this.reviews = List.of(reviews);
-    }*/
+    }
 
     public Hashtag(String name) {
         this.name = name;
@@ -40,11 +40,7 @@ public class Hashtag {
 
     @Override
     public String toString() {
-        return "Hashtag{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", reviews=" + reviews +
-                '}';
+        return name ;
     }
 
     @Override

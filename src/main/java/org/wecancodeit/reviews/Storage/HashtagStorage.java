@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @Service
 public class HashtagStorage {
-    @Resource//may error...double check once hashtag is fixed
+    @Resource
     private HashtagRepository hashtagRepo;
 
     public HashtagStorage(HashtagRepository hashtagRepo) {
@@ -25,7 +25,9 @@ public class HashtagStorage {
     }
 
     public Iterable<Hashtag> getAllHashtag() {
-        return hashtagRepo.findAll();}
+            return hashtagRepo.findAll();
+    }
+
 
     public Hashtag getHashtagById(Long id) {
         Optional<Hashtag> retrievedHashtagOptional = hashtagRepo.findById(id);

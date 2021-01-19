@@ -17,20 +17,30 @@
 </nav>
 
 <section>
-   <header><h1 th:text="${review.title}">Halloween</h1></header>
+   <header>
+       <h1 th:text="${review.title}">Halloween</h1>
+       <a href="">Add a review</a>
+   </header>
     <img th:src="${review.poster}">
     <br>
     <a th:href="${review.trailer}">Watch Trailer</a>
+    <section class="review-form">
+        <form action="review/{id}"  method="POST">
 
+            <label for="author">Author</label><input type="text" id="author" name="author"><br>
+            <label for="description">Review </label><textarea type="text" id="description" name="description"></textarea><br>
+            <label for="hashtag">Hashtag </label><input type="text" id="hashtag" name="hashtag"><br>
+            <input type="button" value="Submit">
+        </form>
+    </section>
     <section class = "Review">
         <h2 th:text="${review.author} + '\'s Movie Review'">Abel's Review</h2>
         <p th:text="${review.description}">This shit is scary as hell!!!</p>
     </section>
-    <!--
         <section class = "Hashtags">
-            //change to th:each
-            <a th:text="'#'+ ${review.getHashtag().getN}" th:href="'/hashtag/'+ ${review.getHashtag().getName()}">#scary</a>
-        </section>-->
+            <!--//change to th:each-->
+            <a th:text="${review.hashtag}" >#scary</a>
+        </section>
 </section>
 </body>
 </html>

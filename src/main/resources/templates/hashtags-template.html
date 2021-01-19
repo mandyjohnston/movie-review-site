@@ -23,11 +23,8 @@
 <section class="reviews">
     <h1>Hashtags</h1>
     <ul>
-        <li th:each="hashtags:${hashtags}"><a th:text="'#'+ ${hashtags}" th:href="'/hashtag/'+ ${hashtags}"></a></li>
+        <li th:each="hashtags:${hashtags}"><a th:text="${hashtags.name}" th:href="'/hashtag/'+ ${hashtags.id}"></a></li>
     </ul>
-
-
-
 </section>
 
 </body>

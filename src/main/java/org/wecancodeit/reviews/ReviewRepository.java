@@ -5,4 +5,5 @@ import org.wecancodeit.reviews.Models.Review;
 
 
 public interface ReviewRepository extends CrudRepository<Review, Long> {
+
 }

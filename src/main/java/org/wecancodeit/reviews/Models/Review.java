@@ -22,14 +22,14 @@ public class Review {
         private String trailer;
 
 
-    public Review(String title, String author, String description, Category category, String poster, String trailer) {
+    public Review(String title, String author, String description, Category category, String poster, String trailer, Hashtag...hashtag) {
         this.title = title;
         this.author = author;
         this.description = description;
         this.category = category;
         this.poster = poster;
         this.trailer = trailer;
-        this.hashtag = hashtag;
+        this.hashtag = List.of(hashtag);
     }
 
     public Review() {
