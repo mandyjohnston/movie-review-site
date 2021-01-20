@@ -3,18 +3,28 @@ package org.wecancodeit.reviews.Controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.wecancodeit.reviews.Models.Category;
 import org.wecancodeit.reviews.Models.Hashtag;
 import org.wecancodeit.reviews.Models.Review;
+import org.wecancodeit.reviews.Storage.CategoryStorage;
 import org.wecancodeit.reviews.Storage.HashtagStorage;
 import org.wecancodeit.reviews.Storage.ReviewStorage;
 
 import javax.annotation.Resource;
+import java.util.Collection;
 
 @Controller
 public class ReviewController {
+    public ReviewController(ReviewStorage reviewsRepo, CategoryStorage categoryStorage, HashtagStorage hashtagStorage) {
+        this.reviewsRepo = reviewsRepo;
+        this.categoryStorage = categoryStorage;
+        this.hashtagStorage = hashtagStorage;
+    }
 
     @Resource
     private ReviewStorage reviewsRepo;
+    private CategoryStorage categoryStorage;
+    private HashtagStorage hashtagStorage;
 
 
     @RequestMapping({"", "/"})
@@ -29,41 +39,38 @@ public class ReviewController {
         return "reviews-template";
     }
 
-   @PostMapping("updateReview")
-    public String updateReviews(@RequestParam String author, @RequestParam String review, @RequestParam Hashtag hashtag) {
-        reviewsRepo.addReview();
-        return "redirect:/reviews-template";
+   @PostMapping("newReview")
+    public String updateReviews(@RequestParam String title, @RequestParam String author, @RequestParam String description, @RequestParam String category, @RequestParam String poster, @RequestParam String trailer, @RequestParam String hashtag1, @RequestParam String hashtag2) {
+       Iterable<Category> categories = categoryStorage.getAllCategories();
+       Iterable<Hashtag> hashtags = hashtagStorage.getAllHashtag();
+        Category addedCategory = null;
+        Hashtag addedTag1 = null;
+        Hashtag addedTag2 = null;
+
+        for(Category i: categories){
+            if(i.getName().equals(category))
+                addedCategory = i;
+        }
+
+       for(Hashtag i: hashtags){
+           if(i.getName().equals(hashtag1))
+               addedTag1 = i;
+           if(i.getName().equals(hashtag2))
+               addedTag2 = i;
+       }
+       if(addedTag1 == null && !hashtag1.equals("")) {
+           addedTag1 = new Hashtag(hashtag1);
+           hashtagStorage.addHashtag(addedTag1);
+       }
+       if(addedTag2 == null && !hashtag1.equals("")) {
+           addedTag2 = new Hashtag(hashtag2);
+           hashtagStorage.addHashtag(addedTag2);
+       }
+
+        Review addedReview = new Review(title, author, description, addedCategory, poster, trailer, addedTag1);
+        reviewsRepo.addReview(addedReview);
+        return "redirect:/";
     }
-/*    @RequestMapping("/hashtags")
-    public String displayHashtags(Model model) {
-        model.addAttribute("hashtags", reviewsRepo.getAllReviews());
-        return "hashtags-template";
-    }
-
-    @RequestMapping("hashtag/{id}")
-    public String displaySingleHashtag(Model model, @PathVariable Long id) {
-        model.addAttribute("hashtag", reviewsRepo.getOneReview(id));
-        return "oneHashtag-template";
-    }*/
-
-    /*@RequestMapping("/categories")
-    public String displayCategories(Model model) {
-        model.addAttribute("categories", reviewsRepo.getAllUniqueCategories());
-        return "categories-template";
-    }
-
-     @RequestMapping("category/{category}")
-    public String displaySingleCategory(Model model, @PathVariable String category) {
-        model.addAttribute("reviews", reviewsRepo.getOneCategory(category));
-        model.addAttribute("category", category);
-        return "oneCategory-template";
-    }*/
-
-
-
-
-
-
 }
 
 

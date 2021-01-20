@@ -2,7 +2,9 @@ package org.wecancodeit.reviews.Models;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Review {
@@ -18,6 +20,8 @@ public class Review {
         private Category category;
         @ManyToMany
         private Collection<Hashtag> hashtag;
+        @OneToMany(mappedBy = "review")
+        private Collection<Comment> comment;
         private String poster;
         private String trailer;
 

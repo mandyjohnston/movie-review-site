@@ -6,12 +6,10 @@
 
 body{
 
-    background-color: #fff3b0;
+    background-color: #f7ede2;
     text-align: center;
     /*padding-left: 30%;
     padding-right: 30%;*/
-
-
 }
 ul {
     font-size: 25px;
@@ -29,6 +27,13 @@ h1 {
     justify-content: center;
 }
 
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+     text-decoration: none;
+ }
 a:hover {
      color: #e09f3e;
 }
@@ -48,4 +53,56 @@ a:hover {
     display: flex;
     font-family: "Arial";
     justify-content: space-around;
+}
+
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #346257;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    left: 25px;
+    font-size: 36px;
+    margin-right: 50px;
+}
+
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #346257;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+}
+
+.openbtn:hover {
+    background-color: #84a59d;
+}
+
+#main {
+    transition: margin-right .5s;
+    padding: 16px;
 }

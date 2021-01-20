@@ -9,26 +9,87 @@
 </head>
 <body>
 
+
+
+
+<div id="main">
 <header>
     <nav class="menu-container">
         <div class="menu">
             <a href="/">Reviews</a>
             <a href="/categories">Categories</a>
             <a href="/hashtags">Hashtags</a>
+            <button class="openbtn" onclick="openNav()">Add a review</button>
         </div>
     </nav>
-
 </header>
+
+<div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <form action="newReview" method="POST">
+        <label for="author">Your Name</label><input type="text" id="author" name="author" ><br>
+        <label for="title">Movie Title</label><input type="text" id="title" name="title"><br>
+        <label for="category">Category</label>
+        <select id="category" name="category">
+            <option value="none" selected disabled hidden>
+                Select an Option
+            </option>
+            <!--<option value="Action">Action</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Animated">Animated</option>
+            <option value="Children">Children</option>
+            <option value="Classic">Classic</option>-->
+            <option value="Comedy">Comedy</option>
+            <!--<option value="Documentary">Documentary</option>
+            <option value="Drama">Drama</option>
+            <option value="Family">Family</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="Foreign">Foreign</option>
+            <option value="Historical">Historical</option>
+            <option value="Horror">Horror</option>
+            <option value="Musical">Musical</option>
+            <option value="Mystery">Mystery</option>
+            <option value="Religious/Spiritual">Religious/Spiritual</option>
+            <option value="Romance">Romance</option>-->
+            <option value="Romantic Comedy">Romantic Comedy</option>
+           <!-- <option value="Science Fiction">Science Fiction</option>
+            <option value="Silent Film">Silent Film</option>
+            <option value="Sports">Sports</option>
+            <option value="Superhero">Superhero</option>
+            <option value="Supernatural">Supernatural</option>
+            <option value="Teens">Teens</option>-->
+            <option value="Thriller">Thriller</option>
+            <!--<option value="War">War</option>
+            <option value="Western">Western</option>
+            <option value="Young Adults">Young Adults</option>-->
+        </select><br>
+        <label for="description">Review</label><textarea id="description" name="description"></textarea><br>
+        <label for="poster">Poster URL</label><input type="url" id="poster" name="poster"><br>
+        <label for="trailer">Trailer URL</label><input type="url" id="trailer" name="trailer"><br>
+        <label for="hashtag1">Hashtag</label><input type="text" id="hashtag1" name="hashtag1"><br>
+        <label for="hashtag2">Hashtag</label><input type="text" id="hashtag2" name="hashtag2">
+        <button type="submit" value="Add movie review">Add review</button>
+    </form>
+</div>
 
 <section class="reviews">
     <h1>Reviews</h1>
     <ul>
     <li th:each="review:${reviews}"><a th:text="${review.title}" th:href="'/review/'+ ${review.id}"></a></li>
     </ul>
-
-
-
 </section>
+</div>
 
+<script>
+    function openNav() {
+        document.getElementById("mySidebar").style.width = "250px";
+        document.getElementById("main").style.marginRight = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginRight= "0";
+    }
+</script>
 </body>
 </html>

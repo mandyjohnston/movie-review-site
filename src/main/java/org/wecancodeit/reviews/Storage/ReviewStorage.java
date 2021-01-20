@@ -9,7 +9,7 @@ import java.util.*;
 
 @Service
 public class ReviewStorage {
-    //Map<Long, MovieReview> reviewList = new HashMap<>();
+
 
     public ReviewStorage() {
 

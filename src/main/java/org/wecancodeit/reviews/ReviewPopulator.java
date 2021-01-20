@@ -54,7 +54,17 @@ public class ReviewPopulator implements CommandLineRunner {
         reviewStorage.addReview(halloween);
         reviewStorage.addReview(bridesmaids);
 
+        /*Hashtag funny = new Hashtag("#funny");
+        Hashtag scary = new Hashtag("#scary");
+        Hashtag hilarious = new Hashtag("#hilarious");
 
+        hashtagStorage.addHashtag(funny, comedy);
+        hashtagStorage.addHashtag(scary, thriller);
+        hashtagStorage.addHashtag(hilarious, romCom);
+
+
+
+        */
 
 
 

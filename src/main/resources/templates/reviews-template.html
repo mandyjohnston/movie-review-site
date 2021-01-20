@@ -4,6 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css"/>
+    <style>
+        .collapsible {
+            background-color: #777;
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 25%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .collapsible:hover {
+            background-color: #555;
+        }
+
+        .content {
+
+            max-height: 0;
+            width: 25%;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+            background-color: #f1f1f1;
+        }
+    </style>
     <title th:text="${review.title}">Halloween Review</title>
 </head>
 <body>
@@ -19,28 +45,44 @@
 <section>
    <header>
        <h1 th:text="${review.title}">Halloween</h1>
-       <a href="">Add a review</a>
    </header>
     <img th:src="${review.poster}">
     <br>
     <a th:href="${review.trailer}">Watch Trailer</a>
-    <section class="review-form">
-        <form action="review/{id}"  method="POST">
 
-            <label for="author">Author</label><input type="text" id="author" name="author"><br>
-            <label for="description">Review </label><textarea type="text" id="description" name="description"></textarea><br>
-            <label for="hashtag">Hashtag </label><input type="text" id="hashtag" name="hashtag"><br>
-            <input type="button" value="Submit">
-        </form>
-    </section>
     <section class = "Review">
         <h2 th:text="${review.author} + '\'s Movie Review'">Abel's Review</h2>
         <p th:text="${review.description}">This shit is scary as hell!!!</p>
     </section>
-        <section class = "Hashtags">
-            <!--//change to th:each-->
-            <a th:text="${review.hashtag}" >#scary</a>
-        </section>
+    <section class = "Hashtags">
+        <p th:each="hashtag:${review.hashtag}"><a th:text="${hashtag.name}" th:href="'/hashtag/'+ ${hashtag.id}"></a></p>
+    </section>
+
+    <button class="collapsible">Add comment</button>
+    <section class="content">
+        <form action="addComment"  method="POST">
+            <label for="user">Name</label><input type="text" id="user" name="user"><br>
+            <label for="comment">Comment</label><textarea type="text" id="comment" name="comment"></textarea><br>
+            <input type="button" value="Add">
+        </form>
+    </section>
 </section>
+
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight){
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    }
+</script>
 </body>
 </html>
