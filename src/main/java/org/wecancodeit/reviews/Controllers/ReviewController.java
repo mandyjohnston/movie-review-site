@@ -4,9 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.wecancodeit.reviews.Models.Category;
+import org.wecancodeit.reviews.Models.Comment;
 import org.wecancodeit.reviews.Models.Hashtag;
 import org.wecancodeit.reviews.Models.Review;
 import org.wecancodeit.reviews.Storage.CategoryStorage;
+import org.wecancodeit.reviews.Storage.CommentStorage;
 import org.wecancodeit.reviews.Storage.HashtagStorage;
 import org.wecancodeit.reviews.Storage.ReviewStorage;
 
@@ -15,16 +17,18 @@ import java.util.Collection;
 
 @Controller
 public class ReviewController {
-    public ReviewController(ReviewStorage reviewsRepo, CategoryStorage categoryStorage, HashtagStorage hashtagStorage) {
+    public ReviewController(ReviewStorage reviewsRepo, CategoryStorage categoryStorage, HashtagStorage hashtagStorage, CommentStorage commentStorage) {
         this.reviewsRepo = reviewsRepo;
         this.categoryStorage = categoryStorage;
         this.hashtagStorage = hashtagStorage;
+        this.commentStorage = commentStorage;
     }
 
     @Resource
     private ReviewStorage reviewsRepo;
     private CategoryStorage categoryStorage;
     private HashtagStorage hashtagStorage;
+    private CommentStorage commentStorage;
 
 
     @RequestMapping({"", "/"})
@@ -36,6 +40,7 @@ public class ReviewController {
     @RequestMapping("review/{id}")
     public String displaySingleReview(Model model, @PathVariable Long id) {
         model.addAttribute("review", reviewsRepo.getOneReview(id));
+        model.addAttribute("comment", commentStorage.getReviewComments(id));
         return "reviews-template";
     }
 
@@ -67,7 +72,7 @@ public class ReviewController {
            hashtagStorage.addHashtag(addedTag2);
        }
 
-        Review addedReview = new Review(title, author, description, addedCategory, poster, trailer, addedTag1);
+        Review addedReview = new Review(title, author, description, addedCategory, poster, trailer, addedTag1, addedTag2);
         reviewsRepo.addReview(addedReview);
         return "redirect:/";
     }

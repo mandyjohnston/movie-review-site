@@ -3,7 +3,7 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="/style.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Categories</title>
 </head>
@@ -20,14 +20,11 @@
 
 </header>
 
-<section class="reviews">
+<section class="categories">
     <h1>Categories</h1>
-    <ul>
-        <li th:each="categories:${categories}"><a th:text="${categories.name}" th:href="'/category/'+ ${categories.id}"></a></li>
-    </ul>
-
-
-
+        <div class="category">
+        <p class="category-column" th:each="categories:${categories}"><br><a th:text="${categories.name}"  th:href="'/category/'+ ${categories.id}"></a></p>
+        </div>
 </section>
 
 </body>

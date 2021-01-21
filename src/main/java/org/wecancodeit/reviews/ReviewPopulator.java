@@ -1,3 +1,4 @@
+/*
 package org.wecancodeit.reviews;
 
 import org.springframework.boot.CommandLineRunner;
@@ -28,10 +29,12 @@ public class ReviewPopulator implements CommandLineRunner {
         Category comedy = new Category("Comedy");
         Category thriller = new Category("Thriller");
         Category romCom = new Category("Romantic Comedy");
-        /*Category drama = new Category("Drama");
+        */
+/*Category drama = new Category("Drama");
         Category action = new Category("Action");
         Category western = new Category("Kids");
-        Category Children = new Category("Children");*/
+        Category Children = new Category("Children");*//*
+
 
 
         categoryStorage.addCategory(comedy);
@@ -54,7 +57,8 @@ public class ReviewPopulator implements CommandLineRunner {
         reviewStorage.addReview(halloween);
         reviewStorage.addReview(bridesmaids);
 
-        /*Hashtag funny = new Hashtag("#funny");
+        */
+/*Hashtag funny = new Hashtag("#funny");
         Hashtag scary = new Hashtag("#scary");
         Hashtag hilarious = new Hashtag("#hilarious");
 
@@ -64,7 +68,8 @@ public class ReviewPopulator implements CommandLineRunner {
 
 
 
-        */
+        *//*
+
 
 
 
@@ -73,3 +78,4 @@ public class ReviewPopulator implements CommandLineRunner {
 
 }
 
+*/

@@ -19,9 +19,10 @@ public class Comment {
     private Review review;
 
 
-    public Comment(String user, String comment) {
+    public Comment(String user, String comment, Review review) {
         this.user = user;
         this.comment = comment;
+        this.review = review;
     }
 
     public Comment() {
