@@ -4,32 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/style.css"/>
-    <style>
-        .collapsible {
-            background-color: #777;
-            color: white;
-            cursor: pointer;
-            padding: 18px;
-            width: 25%;
-            border: none;
-            text-align: left;
-            outline: none;
-            font-size: 15px;
-        }
-
-        .collapsible:hover {
-            background-color: #555;
-        }
-
-        .content {
-
-            max-height: 0;
-            width: 25%;
-            overflow: hidden;
-            transition: max-height 0.2s ease-out;
-            background-color: #f1f1f1;
-        }
-    </style>
     <title th:text="${review.title}">Halloween Review</title>
 </head>
 <body>
@@ -58,6 +32,7 @@
         <p th:each="hashtag:${review.hashtag}"><a th:text="${hashtag.name}" th:href="'/hashtag/'+ ${hashtag.id}"></a></p>
     </section>
 
+    <section>
     <button class="collapsible">Add comment</button>
     <section class="content">
         <form action="/addComment"  method="POST">
@@ -68,6 +43,7 @@
         </form>
     </section>
 
+    </section>
     <p th:each="comments:${comment}"><a th:text="${comments.user}"></a></a> </p>
     <p th:each="comments:${comment}"><a th:text="${comments.comment}"></a></a> </p>
 </section>
