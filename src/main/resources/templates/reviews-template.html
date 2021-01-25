@@ -27,6 +27,7 @@
 
     <section class = "Review">
         <h2 th:text="${review.author} + '\'s Movie Review'">Abel's Review</h2>
+        <hr>
         <p th:text="${review.description}">This shit is scary as hell!!!</p>
     </section>
     <section class = "Hashtags">
@@ -53,8 +54,8 @@
 
     </section>
 
-    <p th:each="comments:${comment}"><a th:text="${comments.user}"></a></a> </p>
-    <p th:each="comments:${comment}"><a th:text="${comments.comment}"></a></a> </p>
+    <p class="addedComment" th:each="comments:${comment}"><a th:text="${comments.comment} + ' ~' + ${comments.user}"></a> </p>
+<!--    <p th:each="comments:${comment}"><a th:text=" "></a></a> </p>-->
 </section>
 
 <script>

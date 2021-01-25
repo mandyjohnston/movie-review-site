@@ -34,6 +34,9 @@ h1 {
     justify-content: center;
 }
 
+.hashtags p {
+
+}
 a:link {
     text-decoration: none;
     color: darkblue;
@@ -74,7 +77,7 @@ a:hover {
     z-index: 1;
     top: 0;
     right: 0;
-    background-color: #346257;
+    background-color: #91321a;
     color: white;
     overflow-x: hidden;
     transition: 0.5s;
@@ -106,13 +109,13 @@ a:hover {
 .openbtn {
     font-size: 20px;
     cursor: pointer;
-    background-color: #346257;
+    background-color: #91321a;
     color: white;
     border: none;
 }
 
 .openbtn:hover {
-    background-color: #84a59d;
+    background-color: #c38879;
 }
 .submitreviewbtn {
     margin-top: 5%;
@@ -128,29 +131,27 @@ a:hover {
 .Review {
     background-color: #FFFFFF;
     border-style: double;
-    text-align: left;
+    text-align: center;
     display: block;
-    margin-top: 1%;
-    margin-bottom: 1%;
-    margin-left: 38%;
-    margin-right: 38%;
+    margin: 1% 30%;
     padding: 5px;
 }
 
 .collapsible {
-    background-color: #777;
+    background-color: #91321a;
     color: white;
     cursor: pointer;
     padding: 18px;
-    width: 25%;
+    width: 15%;
+    height: auto;
     border: none;
-    text-align: left;
+    text-align: center;
     outline: none;
     font-size: 15px;
 }
 
 .collapsible:hover {
-    background-color: #555;
+    background-color: #c38879;
 }
 
 .content {
@@ -174,7 +175,7 @@ a:hover {
 .field {
     width: 155px;
     clear: both;
-    margin-top: 2;
+    margin-top: 2%;
     margin-left: 2%;
     margin-bottom: 2%;
 }
@@ -197,4 +198,22 @@ a:hover {
     display: grid;
     grid-template-columns: auto auto auto auto;
     font-size: 22px;
+}
+
+.addedComment {
+    background-color: #FFFFFF;
+    border-style: double;
+    text-align: center;
+    display: block;
+    margin: 1% 30%;
+    padding: 5px;
+}
+
+.addedComment:hover {
+    color:#91321a;
+}
+
+img {
+    width:300px;
+    height:400px
 }
