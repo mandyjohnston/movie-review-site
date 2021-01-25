@@ -26,6 +26,7 @@
 
 <div id="mySidebar" class="sidebar">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <div class = "field">
     <form action="newReview" method="POST">
         <label for="author">Your Name</label><input type="text" id="author" name="author" ><br>
         <label for="title">Movie Title</label><input type="text" id="title" name="title"><br>
@@ -52,7 +53,7 @@
             <option value="Religious/Spiritual">Religious/Spiritual</option>
             <option value="Romance">Romance</option>
             <option value="Romantic Comedy">Romantic Comedy</option>
-           <option value="Science Fiction">Science Fiction</option>
+            <option value="Science Fiction">Science Fiction</option>
             <option value="Silent Film">Silent Film</option>
             <option value="Sports">Sports</option>
             <option value="Superhero">Superhero</option>
@@ -68,8 +69,11 @@
         <label for="trailer">Trailer URL</label><input type="url" id="trailer" name="trailer"><br>
         <label for="hashtag1">Hashtag</label><input type="text" id="hashtag1" name="hashtag1"><br>
         <label for="hashtag2">Hashtag</label><input type="text" id="hashtag2" name="hashtag2">
-        <button type="submit" value="Add movie review">Add review</button>
+        <div class = "submitreviewbtn">
+            <button type="submit" value="Add movie review">Add review</button>
+        </div>
     </form>
+    </div>
 </div>
 
 <section class="reviews">

@@ -9,6 +9,7 @@
 </head>
 <body>
 
+<div id="main">
 <header>
     <nav class="menu-container">
         <div class="menu">
@@ -25,5 +26,6 @@
         <li th:each="review:${category.getReviews()}"><a th:text="${review.title}" th:href="'/review/'+ ${review.id}"></a></li>
     </ul>
 </section>
+</div>
 </body>
 </html>

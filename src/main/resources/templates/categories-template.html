@@ -9,6 +9,7 @@
 </head>
 <body>
 
+<div id="main">
 <header>
     <nav class="menu-container">
         <div class="menu">
@@ -26,6 +27,6 @@
         <p class="category-column" th:each="categories:${categories}"><br><a th:text="${categories.name}"  th:href="'/category/'+ ${categories.id}"></a></p>
         </div>
 </section>
-
+</div>
 </body>
 </html>

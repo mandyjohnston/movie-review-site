@@ -8,6 +8,7 @@
 </head>
 <body>
 
+<div id="main">
 <nav class="menu-container">
     <div class="menu">
         <a href="/">Reviews</a>
@@ -32,18 +33,26 @@
         <p th:each="hashtag:${review.hashtag}"><a th:text="${hashtag.name}" th:href="'/hashtag/'+ ${hashtag.id}"></a></p>
     </section>
 
-    <section>
     <button class="collapsible">Add comment</button>
+
     <section class="content">
+
         <form action="/addComment"  method="POST">
+            <div class = "field">
             <input type="hidden" id="id" name="id"  th:value="${review.id}">
-            <label for="user">Name</label><input type="text" id="user" name="user"><br>
-            <label for="comment">Comment</label><textarea type="text" id="comment" name="comment"></textarea><br>
-            <button type="submit" value="Comment">Comment</button>
+            <label for="user">Name</label>
+            <input type="text" id="user" name="user"><br>
+            <label for="comment">Comment</label>
+            <textarea type="text" id="comment" name="comment"></textarea><br>
+
+                <div class = "submitcommentbtn">
+                    <button type="submit" value="Comment">Comment</button>
+                </div>
+            </div>
         </form>
-    </section>
 
     </section>
+
     <p th:each="comments:${comment}"><a th:text="${comments.user}"></a></a> </p>
     <p th:each="comments:${comment}"><a th:text="${comments.comment}"></a></a> </p>
 </section>
@@ -64,5 +73,6 @@
         });
     }
 </script>
+</div>
 </body>
 </html>

@@ -1,4 +1,4 @@
-/** {
+/* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -12,8 +12,9 @@ body{
     background-attachment: fixed;
     background-color: #f7ede2;
     text-align: center;
-    /*display: flex;*/
-/*    justify-content: center;*/
+    font-family: "Helvetica", "Arial", sans-serif;
+/*    display: flex;
+    justify-content: center;*/
     /*padding-left: 30%;
     padding-right: 30%;*/
 }
@@ -28,13 +29,15 @@ ul {
 h1 {
     font-size: 40px;
     /*text-align: center;*/
-    font-family: "Helvetica", "Arial", sans-serif;
+    font-family: "BentonSansRE", "Helvetica", "Arial", sans-serif;
     display: flex;
     justify-content: center;
 }
 
 a:link {
     text-decoration: none;
+    color: darkblue;
+    text-shadow: 1px 1px 5px white;
 }
 
 a:visited {
@@ -42,6 +45,8 @@ a:visited {
  }
 a:hover {
      color: #e09f3e;
+    /*color: yellowgreen;*/
+    /*color: yellow;*/
 }
 
 .movie-category p {
@@ -59,6 +64,7 @@ a:hover {
     display: flex;
     font-family: "Arial";
     justify-content: space-around;
+    font-size: 20px;
 }
 
 .sidebar {
@@ -69,9 +75,11 @@ a:hover {
     top: 0;
     right: 0;
     background-color: #346257;
+    color: white;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
+    text-align: left;
 }
 
 .sidebar a {
@@ -90,7 +98,7 @@ a:hover {
 .sidebar .closebtn {
     position: absolute;
     top: 0;
-    left: 25px;
+    left: 140px;
     font-size: 36px;
     margin-right: 50px;
 }
@@ -106,10 +114,15 @@ a:hover {
 .openbtn:hover {
     background-color: #84a59d;
 }
+.submitreviewbtn {
+    margin-top: 5%;
+    margin-left: 45%;
+}
 
 #main {
     transition: margin-right .5s;
-    padding: 16px;
+/*    margin-top: 2%*/
+/*    padding: 16px;*/
 }
 
 .Review {
@@ -121,7 +134,7 @@ a:hover {
     margin-bottom: 1%;
     margin-left: 38%;
     margin-right: 38%;
-    padding: 10px;
+    padding: 5px;
 }
 
 .collapsible {
@@ -149,10 +162,32 @@ a:hover {
     background-color: #f1f1f1;
     display: block;
     /*justify-content: center;*/
+    /*margin-top: 1%;*/
+/*    margin-bottom: 1%;*/
     margin-left: 37.5%;
     margin-right: 37.5%;
-    /*text-align: left;*/
-    /*padding: 5px;*/
+    text-align: left;
+    /*border-style: double;*/
+    /*padding: 0px 0px 1px 1px;*/
+}
+
+.field {
+    width: 155px;
+    clear: both;
+    margin-top: 2;
+    margin-left: 2%;
+    margin-bottom: 2%;
+}
+
+.field input {
+    width: 100%;
+    clear: both;
+}
+
+.submitcommentbtn {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 70%;
 }
 
 .category {
@@ -160,5 +195,6 @@ a:hover {
     flex-direction: column;*/
     /*flex-flow: column wrap;*/
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto auto auto auto;
+    font-size: 22px;
 }

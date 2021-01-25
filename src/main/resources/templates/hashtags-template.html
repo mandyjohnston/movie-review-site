@@ -9,6 +9,7 @@
 </head>
 <body>
 
+<div id="main">
 <header>
     <nav class="menu-container">
         <div class="menu">
@@ -26,6 +27,6 @@
         <li th:each="hashtags:${hashtags}"><a th:text="${hashtags.name}" th:href="'/hashtag/'+ ${hashtags.id}"></a></li>
     </ul>
 </section>
-
+</div>
 </body>
 </html>
